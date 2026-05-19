@@ -1,0 +1,316 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg:        #0a0c0f;
+  --surface:   #111418;
+  --surface2:  #181c22;
+  --border:    #1e2329;
+  --accent:    #00e5a0;
+  --accent-dim:#00b87e;
+  --danger:    #ff3b3b;
+  --warn:      #f59e0b;
+  --text:      #e2e8f0;
+  --muted:     #64748b;
+  --mono:      'IBM Plex Mono', monospace;
+  --sans:      'IBM Plex Sans', sans-serif;
+}
+
+html, body { height: 100%; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.shell {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* ── Topbar ─────────────────────────────────────── */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.25rem;
+  height: 52px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--muted);
+  transition: background 0.3s, box-shadow 0.3s;
+  flex-shrink: 0;
+}
+.brand-dot.online {
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+.brand-dot.danger {
+  background: var(--danger);
+  box-shadow: 0 0 10px var(--danger);
+  animation: pulse-dot 0.5s ease-in-out infinite;
+}
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.35; }
+}
+
+.brand-name {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+.brand-sub {
+  font-size: 11px;
+  color: var(--muted);
+  font-family: var(--mono);
+}
+
+.stats-row {
+  display: flex;
+  gap: 6px;
+}
+.stat-chip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3px 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  min-width: 64px;
+}
+.stat-val {
+  font-family: var(--mono);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--accent);
+}
+.stat-lbl {
+  font-size: 9px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+/* ── Main layout ────────────────────────────────── */
+.content {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* ── Video panel ────────────────────────────────── */
+.video-panel {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  background: var(--bg);
+}
+
+.video-frame {
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  background: #000;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.video-frame img {
+  width: 100%;
+  display: block;
+  min-height: 200px;
+}
+
+.video-corner {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-color: var(--accent);
+  border-style: solid;
+  border-width: 0;
+  opacity: 0.7;
+}
+.video-corner.tl { top: 0;    left: 0;  border-top-width: 2px;    border-left-width: 2px; }
+.video-corner.tr { top: 0;    right: 0; border-top-width: 2px;    border-right-width: 2px; }
+.video-corner.bl { bottom: 0; left: 0;  border-bottom-width: 2px; border-left-width: 2px; }
+.video-corner.br { bottom: 0; right: 0; border-bottom-width: 2px; border-right-width: 2px; }
+
+.video-badge {
+  display: none;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: var(--danger);
+  color: #fff;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 4px;
+  letter-spacing: 0.08em;
+  animation: blink-badge 0.8s step-end infinite;
+}
+.video-badge.visible { display: block; }
+@keyframes blink-badge {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+.video-overlay-info {
+  position: absolute;
+  bottom: 8px;
+  left: 10px;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: rgba(255,255,255,0.4);
+}
+
+/* ── Side panel ─────────────────────────────────── */
+.side-panel {
+  width: 300px;
+  border-left: 1px solid var(--border);
+  background: var(--surface);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.panel-section {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+}
+.panel-section:last-child { border-bottom: none; }
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.badge {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1px 7px;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--accent);
+}
+
+/* Metric grid */
+.metric-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+.metric-card {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 8px 10px;
+  text-align: center;
+}
+.metric-val {
+  font-family: var(--mono);
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--accent);
+}
+.metric-lbl {
+  font-size: 10px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+/* Event list */
+.event-list {
+  list-style: none;
+  overflow-y: auto;
+  flex: 1;
+  max-height: 280px;
+}
+.event-item {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  padding: 5px 4px;
+  border-radius: 4px;
+  font-size: 11px;
+  border-left: 2px solid transparent;
+  margin-bottom: 1px;
+}
+.event-item:hover { background: rgba(255,255,255,0.03); }
+.event-fall {
+  background: rgba(255, 59, 59, 0.07) !important;
+  border-left-color: var(--danger) !important;
+}
+.event-ts {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 9px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.event-label {
+  color: var(--text);
+  flex: 1;
+  text-transform: capitalize;
+}
+.event-angle {
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: 10px;
+  flex-shrink: 0;
+}
+
+/* Angle chart */
+#angle-chart {
+  width: 100%;
+  display: block;
+}
+.chart-legend {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+  font-size: 10px;
+  color: var(--muted);
+}
+.legend-line {
+  display: inline-block;
+  width: 16px;
+  height: 2px;
+  border-radius: 1px;
+}
+.legend-line.normal    { background: var(--accent); }
+.legend-line.threshold { background: var(--danger); opacity: 0.5; }

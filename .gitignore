@@ -1,0 +1,34 @@
+# Virtual environment
+venv/
+
+# Snapshots — don't upload fall images
+snapshots/
+
+# Database
+data/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Model weights — too large for GitHub
+*.pt
+*.engine
+*.whl
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/
