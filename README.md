@@ -48,6 +48,10 @@ SafeVision AI is a privacy-preserving, edge-based fall detection system. All pro
 | Operating system | Ubuntu 20.04 / JetPack 5.1.4 |
 
 ---
+## Project Architecture
+
+<img width="696" height="394" alt="Screenshot 2026-05-19 at 21 22 42" src="https://github.com/user-attachments/assets/d1cd68cc-1201-40ab-9900-17e0b8626729" />
+
 
 ## Project Structure
 
