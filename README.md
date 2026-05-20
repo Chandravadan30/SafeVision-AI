@@ -218,7 +218,11 @@ https://github.com/user-attachments/assets/c91d49cd-57c8-48a6-8ea7-9b2df73d3b35
 
 
 
+**Email Alerts**
+
+<img width="1512" height="982" alt="Screenshot 2026-05-19 at 20 07 34" src="https://github.com/user-attachments/assets/b869c970-3736-4f4b-81c5-a8e4e12688d4" />
 
 
+<img width="1512" height="982" alt="Screenshot 2026-05-19 at 20 09 04" src="https://github.com/user-attachments/assets/78a387f9-7cca-4d6f-bae0-532871fde100" />
 
 
