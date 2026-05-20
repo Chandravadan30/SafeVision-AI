@@ -213,6 +213,9 @@ NVIDIA Jetson Orin Nano, Edge AI, Computer Vision
 ## DEMO
 
 **Dashboard**
+
+
+
 <img width="588" height="475" alt="Screenshot 2026-05-19 at 17 17 46" src="https://github.com/user-attachments/assets/75698c98-e04d-468c-9ca9-3335e6f18dd1" />
 
 https://github.com/user-attachments/assets/fe0badb4-a33e-4866-8451-ba7daa2e65f8
